@@ -1,17 +1,16 @@
 # (Yocto) How to create your own meta-layer?
 
 ## 1. DESCRIPTION
-In this project, I will show you how to create your own meta-layer for by yocto, bitbake command.
-And this project is the result by follow the course below. Let's start.
-This project is for the developer who has basic knowledge of yocto.
+In this project, I will show you how to create your own meta-layer by yocto, `bitbake` command.
+This project is the result by following the course below, which is fit for the developer who has basic acknowledge of yocto.
 
 ## 2. Steps
 
-### 2.1. Enviroment
-* Use the command `source <path_to_oe-init-build-env>`, which will give you the environment needed.
+### 2.1. Environment
+* Use the command `source <path_t_poky_oe-init-build-env>`, which will give you the environment needed.
 
 
-### 2.2. Creation
+### 2.2. Layer Creation
 * Use `bitbake-layers create-layer <path_you_want_to_put_your_layer>` to create the layer.
 * Then you will find the folder as below with the `tree` command. It means that your creation is successful.
 
@@ -25,7 +24,7 @@ This project is for the developer who has basic knowledge of yocto.
         └── example_0.1.bb
 ```
 
-### 2.3. Addition
+### 2.3. Layer Addition
 * Use the command `bitbake-layers add-layer <path_of_your_layer>`
 * And then you will fould in the `conf/bblayers.conf`, your layer was added into the list. If you build the image now, it will be built successfully with an empty layer.
 ```sh
@@ -38,7 +37,7 @@ BBLAYERS ?= " \
   "
 ```
 
-### 2.4. Create an App
+### 2.4. Application Creation
 
 * 2.4.1. You could add your own recipe in the `recipes-example` or create a new recipe with the same structure of `recipes-example`
 ```sh
@@ -72,7 +71,7 @@ touch Makefile
         │   └── Makefile
         ├── hello2.bb
         └── hello.bb
-ps: the folder name and the name of the .bb file should be the same.
+# ps: the folder name and the name of the .bb file should be the same.
 ```
 
 * 2.4.2. Put the following content in the `hello.bb` file.
@@ -105,7 +104,7 @@ FILE_${PN} = "${bindir}/hello"
 TARGET_CC_ARCH += "${LDFLAGS}"
 ```
 
-* 2.4.3. Fill the code and makefile to the .c and Makefile
+* 2.4.3. Fill in the code and makefile to the .c and Makefile
 
 ``` c
 // C++
