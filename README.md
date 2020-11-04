@@ -94,9 +94,11 @@ do_compile() {
 	make
 }
 
+# WORKDIR is a variable global, so if you use directly in the do_* operation, an error would be generated.
+S = "${WORKDIR}"
 do_install() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${WORKDIR}/hello ${D}${bindir}/
+	install -m 0755 ${S}/hello ${D}${bindir}/
 }
 
 FILE_${PN} = "${bindir}/hello"
@@ -153,7 +155,7 @@ hello \
 
 ## 3. All the content below is generated automatically.
 ```
-This README file contains information on the contents of the meta-ding-test layer.
+This README file contains information on the contents of the meta-test-layer layer.
 
 Please see the corresponding sections below for details.
 
@@ -193,5 +195,5 @@ Run 'bitbake-layers add-layer meta-test-layer'
 II. Misc
 ========
 
---- replace with specific information about the meta-ding-test layer ---
+--- replace with specific information about the meta-test-layer layer ---
 ```
