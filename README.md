@@ -217,3 +217,6 @@ II. Misc
 
 --- replace with specific information about the meta-test-layer layer ---
 ```
+
+## 4. Dependencies
+[1. cmake](http://bec-systems.com/site/1128/best-practices-for-using-cmake-in-openembeddedyocto)
