@@ -1,28 +1,29 @@
 DESCRIPTION = "Hello World"
-
 SECTION = "libs"
-
 LICENSE = "MIT"
 
-PV = "3"
+inherit cmake
 
+PV = "0"
 PR = "r0"
 
 SRC_URI = "\
-file://hello.c \
-file://Makefile \
+file://hello.cpp \
+file://CMakeLists.txt \
 "
-LIC_FILES_CHKSUM = "file://hello.c;md5=d41d8cd98f00b204e9800998ecf8427e"
+LIC_FILES_CHKSUM = "file://hello.cpp;md5=b00c3c6e99a10c3164ec4e83c738f515"
 S = "${WORKDIR}"
 
 do_compile() {
+	cd ${S}
+	cmake .
 	make
 }
 
 do_install() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}/hello ${D}${bindir}/
+	install -m 0755 ${S}/hello2 ${D}${bindir}/
 }
 
-FILE_${PN} = "${bindir}/hello"
+FILE_${PN} = "${bindir}/hello2"
 TARGET_CC_ARCH += "${LDFLAGS}"
