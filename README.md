@@ -116,6 +116,15 @@ FILE_${PN} = "${bindir}/hello"
 TARGET_CC_ARCH += "${LDFLAGS}"
 ```
 
+
+If your project is built with cmake you need to add the following line in your `.bb` file.
+
+```sh
+inherit cmake
+```
+
+And then you could use `cmake` command in the `do_compile () step`
+
 * 2.4.3. Fill in the code and makefile to the .c and Makefile
 
 ``` c
